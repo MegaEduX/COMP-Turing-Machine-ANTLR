@@ -1,5 +1,15 @@
-/*	State 0 */
+[s0] {
+	0 _ r 1o
+	1 _ r 1i
+	_ _ * accept
+}
 
-s0 0 _ r 1o
-s0 1 _ r 1i
-s0 _ _ * accept		/*	Empty Input	*/
+[1o] {
+	_ _ l 2o
+	* * r 1o
+}
+
+[1i] {
+	_ _ l 2i
+	* * r 1i
+}

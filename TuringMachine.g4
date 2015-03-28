@@ -1,29 +1,75 @@
-grammar TuringMachine;
-
 /*
  *	Turing Machine Language Parser
  * 
- *	Parses tuples of the following form: <current state> <current symbol> <new symbol> <direction> <new state>
+ *	Parses tuples of the following form: 
+ *      <current symbol> <new symbol> <direction> <new state>
+ *  Grouped on blocks:
+ *      [<current state>] { <tuples ...> }
  * 	
- *  Example Line: foo 0 _ * bar
- * 	
- * 	(grammar idea based on http://morphett.info/turing/turing.html)
+ * 	Grammar idea based on http://morphett.info/turing/turing.html
+ * 
+ *  To test:
+ *      antlr4 TuringMachine.g4; javac *.java; grun TuringMachine r -gui
+ * 
  */
 
-r           :   row+                            ;
+grammar TuringMachine;
 
-row         :   state symbol symbol dir state   ;
+r           :   
+    statedef+;
 
-state       :   ALPNUMPLUS                      ;
+statedef    :   
+    SN_BEG 
+    statename 
+    SN_END 
+    STATE_BEG 
+    tuple+ 
+    STATE_END;
 
-symbol      :   ALPNUM  |   '_' |   WILDCARD    ;
+tuple       :   
+    symbol 
+    symbol 
+    dir 
+    state;
 
-dir         :   ('l' | 'r' | '*')               ;
+statename   :   
+    ALPNUMPLUS;
 
-ALPNUM      :   [A-Za-z0-9]                     ;
-ALPNUMPLUS  :   ALPNUM+                         ;
+state       :   
+    ALPNUMPLUS;
 
-WHITESP     :   [ \t\r\n]+      ->  skip        ;
-WILDCARD    :   '*';
+symbol      :   
+    ALPNUM | UNDERSC | WILDCARD     ;
 
-COMMENT     :   '/*' .*? '*/'   ->  skip        ;   //  Ignore C-style /**/ comments
+dir         :   
+    (
+        'l' | 
+        'r' | 
+        '*'
+    );
+
+SN_BEG      :   
+    '[';
+SN_END      :   
+    ']';
+
+STATE_BEG   :   
+    '{';
+STATE_END   :   
+    '}';
+
+ALPNUM      :   
+    [A-Za-z0-9];
+ALPNUMPLUS  :   
+    ALPNUM | ALPNUM+;
+
+WHITESP     :   
+    [ \t\r\n]+ -> skip;
+
+WILDCARD    :   
+    '*';
+UNDERSC     :   
+    '_';
+
+COMMENT     :   
+    '/*' .*? '*/' -> skip;   //  Ignore C-style /**/ comments
