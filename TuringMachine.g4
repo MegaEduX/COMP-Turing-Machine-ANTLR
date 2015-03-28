@@ -33,13 +33,15 @@ tuple       :
     state;
 
 statename   :   
-    ALPNUMPLUS;
+    ALPNUM_PLUS;
 
 state       :   
-    ALPNUMPLUS;
+    ALPNUM_PLUS;
 
 symbol      :   
-    ALPNUM | UNDERSC | WILDCARD     ;
+    ALPNUM | 
+    UNDERSC | 
+    WILDCARD     ;
 
 dir         :   
     (
@@ -60,8 +62,9 @@ STATE_END   :
 
 ALPNUM      :   
     [A-Za-z0-9];
-ALPNUMPLUS  :   
-    ALPNUM | ALPNUM+;
+ALPNUM_PLUS  :   
+    ALPNUM | 
+    ALPNUM+;
 
 WHITESP     :   
     [ \t\r\n]+ -> skip;
@@ -72,4 +75,8 @@ UNDERSC     :
     '_';
 
 COMMENT     :   
-    '/*' .*? '*/' -> skip;   //  Ignore C-style /**/ comments
+    '/*'
+    .*?
+    '*/'
+    ->
+    skip;   //  Ignore C-style /**/ comments
