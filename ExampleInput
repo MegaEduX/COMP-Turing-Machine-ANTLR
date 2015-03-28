@@ -1,0 +1,5 @@
+/*	State 0 */
+
+s0 0 _ r 1o
+s0 1 _ r 1i
+s0 _ _ * accept		/*	Empty Input	*/
