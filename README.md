@@ -1,12 +1,14 @@
 Turing Machine (ANTLR Language Specification)
 =============================================
 
+
 Testing
 -------
 
 	$ antlr4 TuringMachine.g4 
 	$ javac *.java
 	$ grun TuringMachine r -gui
+
 
 Syntax
 ------
@@ -18,8 +20,11 @@ Syntax
 - Anything after a ';' is a comment and is ignored.
 - The machine halts when it reaches any state starting with 'halt', eg. halt, halt-accept.
 
+
 Example
 -------
+
+Example Input File
 
 	; This example program checks if the input string is a binary palindrome.
 	; Input: a string of 0's and 1's, eg '1001001'
