@@ -16,7 +16,7 @@ row         :   state symbol symbol dir state   ;
 
 state       :   ALPNUMPLUS                      ;
 
-symbol      :   ALPNUM  |   '_'                 ;
+symbol      :   ALPNUM  |   '_' |   WILDCARD    ;
 
 dir         :   ('l' | 'r' | '*')               ;
 
@@ -24,5 +24,6 @@ ALPNUM      :   [A-Za-z0-9]                     ;
 ALPNUMPLUS  :   ALPNUM+                         ;
 
 WHITESP     :   [ \t\r\n]+      ->  skip        ;
+WILDCARD    :   '*';
 
 COMMENT     :   '/*' .*? '*/'   ->  skip        ;   //  Ignore C-style /**/ comments
