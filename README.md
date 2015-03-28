@@ -24,8 +24,6 @@ Syntax
 Example
 -------
 
-Example Input File
-
 	; This example program checks if the input string is a binary palindrome.
 	; Input: a string of 0's and 1's, eg '1001001'
 	
