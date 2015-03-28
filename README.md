@@ -17,5 +17,4 @@ Syntax
 - You can use any number or word for [current state] and [new state], eg. 10, a, state1. State labels are case-sensitive.
 - You can use any character for [current symbol] and [new symbol], or '_' to represent blank (space). Symbols are case-sensitive.
 - [direction] should be 'l', 'r' or '*', denoting 'move left', 'move right' or 'do not move', respectively.
-- Anything after a ';' is a comment and is ignored.
-- The machine halts when it reaches any state starting with 'halt', eg. halt, halt-accept.
+- /* Comments are C-Style. */
