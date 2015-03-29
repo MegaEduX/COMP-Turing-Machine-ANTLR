@@ -1,17 +1,16 @@
-Turing Machine (ANTLR Language Specification)
-=============================================
+# Turing Machine (ANTLR Language Specification)
 
+---
 
-Testing
--------
+## Testing
 
 	$ antlr4 TuringMachine.g4 
 	$ javac *.java
 	$ grun TuringMachine r -gui
 
+---
 
-Syntax
-------
+## Syntax
 
 - Each line should contain one tuple of the form '[current state] [current symbol] [new symbol] [direction] [new state]'.
 - You can use any number or word for [current state] and [new state], eg. 10, a, state1. State labels are case-sensitive.
