@@ -30,12 +30,9 @@ tuple       :
     symbol 
     symbol 
     dir 
-    state;
+    statename;
 
 statename   :   
-    ALPNUM_PLUS;
-
-state       :   
     ALPNUM_PLUS;
 
 symbol      :   
