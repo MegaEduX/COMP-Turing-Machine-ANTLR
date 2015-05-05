@@ -36,9 +36,10 @@ statename   :
     ALPNUM_PLUS;
 
 symbol      :   
-    ALPNUM | 
+    ALPNUM  | 
     UNDERSC | 
-    WILDCARD     ;
+    WILDCARD|
+    MISC     ;
 
 dir         :   
     (
@@ -70,6 +71,14 @@ WILDCARD    :
     '*';
 UNDERSC     :   
     '_';
+
+MISC        :
+    ':'     |
+    ')'     |
+    '('     ;
+
+ANYCHAR     :
+    .;
 
 COMMENT     :   
     '/*'
